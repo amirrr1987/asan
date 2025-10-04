@@ -7,8 +7,12 @@
     "types": [],
     "baseUrl": ".",
     "paths": {
-      "@": ["./src/app"],
-      "@assets": ["./src/assets"]
+      "@/*": [
+        "src/app/*"
+      ],
+      "@assets": [
+        "src/assets/*"
+      ]
     }
   },
   "include": [
