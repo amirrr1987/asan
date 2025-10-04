@@ -1,1 +1,377 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+// Load core Material theming utilities
+@include mat.core;
+
+// Define typography configuration based on base-theme.json
+$typography: mat.m2-define-typography-config($font-family: '"Vazirmatn", "Roboto", "Helvetica", "Arial", sans-serif', // Replaced 'inherit' with a standard font stack
+    $headline-1: mat.m2-define-typography-level(40px, 63.48px, 400), // h1Lg
+    $headline-2: mat.m2-define-typography-level(32px, 50.78px, 400), // h1Md
+    $headline-3: mat.m2-define-typography-level(24px, 38.09px, 400), // h1Sm
+    $body-1: mat.m2-define-typography-level(14px, 1.5, 400), // body1 (line-height 'normal' replaced with 1.5)
+    $body-2: mat.m2-define-typography-level(16px, 25.39px, 400), // bodyLg
+    $subtitle-1: mat.m2-define-typography-level(14px, 22.22px, 400), // bodyMd
+    $subtitle-2: mat.m2-define-typography-level(12px, 19.04px, 400), // bodySm
+    $caption: mat.m2-define-typography-level(14px, 19.04px, 400), // caption
+    $button: mat.m2-define-typography-level(14px, 22.22px, 500), // button
+    $overline: mat.m2-define-typography-level(10px, 15.87px, 400) // bodyXs
+  );
+
+// Include typography hierarchy
+@include mat.typography-hierarchy($typography);
+
+// Light Theme Palette
+$light-primary: mat.m2-define-palette((50: #e6f1ef,
+      100: #b0d3ce,
+      200: #8abeb6,
+      300: #54a195,
+      400: #338e81,
+      500: #007261,
+      600: #006858,
+      700: #005145,
+      800: #003f35,
+      900: #003029,
+      A100: #8abeb6,
+      A200: #54a195,
+      A400: #338e81,
+      A700: #005145,
+      main: #007261,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+$light-accent: mat.m2-define-palette((50: #e7f7f9,
+      100: #b4e7eb,
+      200: #8fdbe2,
+      300: #5ccad5,
+      400: #3dc0cd,
+      500: #0cb0c0,
+      600: #0ba0af,
+      700: #097d88,
+      800: #07616a,
+      900: #054a51,
+      A100: #8fdbe2,
+      A200: #5ccad5,
+      A400: #3dc0cd,
+      A700: #097d88,
+      main: #006858,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+$light-warn: mat.m2-define-palette((50: #fff8e6,
+      100: #ffe9b0,
+      200: #ffde8a,
+      300: #ffcf54,
+      400: #ffc533,
+      500: #ffb700,
+      600: #e8a700,
+      700: #b58200,
+      800: #8c6500,
+      900: #6b4d00,
+      A100: #ffde8a,
+      A200: #ffcf54,
+      A400: #ffc533,
+      A700: #b58200,
+      main: #ffb700,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+// Dark Theme Palette
+$dark-primary: mat.m2-define-palette((50: #153c36,
+      100: #1c4e47,
+      200: #24655c,
+      300: #2e8175,
+      400: #2D7F73,
+      500: #338e81,
+      600: #76b3ab,
+      700: #a1cbc5,
+      800: #c0dcd8,
+      900: #ebf4f2,
+      A100: #24655c,
+      A200: #2e8175,
+      A400: #2D7F73,
+      A700: #a1cbc5,
+      main: #338e81,
+      contrast: (50: #ffffff,
+        100: #ffffff,
+        200: #ffffff,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: rgba(0, 0, 0, 0.87),
+        700: rgba(0, 0, 0, 0.87),
+        800: rgba(0, 0, 0, 0.87),
+        900: rgba(0, 0, 0, 0.87))));
+
+$dark-accent: mat.m2-define-palette((50: #054a51,
+      100: #07616a,
+      200: #097d88,
+      300: #0ba0af,
+      400: #0BACBB,
+      500: #0cb0c0,
+      600: #3dc0cd,
+      700: #5ccad5,
+      800: #8fdbe2,
+      900: #b4e7eb,
+      A100: #097d88,
+      A200: #0ba0af,
+      A400: #0BACBB,
+      A700: #5ccad5,
+      main: #0cb0c0,
+      contrast: (50: #ffffff,
+        100: #ffffff,
+        200: #ffffff,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: rgba(0, 0, 0, 0.87),
+        700: rgba(0, 0, 0, 0.87),
+        800: rgba(0, 0, 0, 0.87),
+        900: rgba(0, 0, 0, 0.87))));
+
+$dark-warn: mat.m2-define-palette((50: #6b4d00,
+      100: #8c6500,
+      200: #b58200,
+      300: #e8a700,
+      400: #FAB401,
+      500: #ffb700,
+      600: #ffc533,
+      700: #ffcf54,
+      800: #ffde8a,
+      900: #fff8e6,
+      A100: #b58200,
+      A200: #e8a700,
+      A400: #FAB401,
+      A700: #ffcf54,
+      main: #ffb700,
+      contrast: (50: #ffffff,
+        100: #ffffff,
+        200: #ffffff,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: rgba(0, 0, 0, 0.87),
+        700: rgba(0, 0, 0, 0.87),
+        800: rgba(0, 0, 0, 0.87),
+        900: rgba(0, 0, 0, 0.87))));
+
+// Additional palettes for error, success, and info
+$light-error: mat.m2-define-palette((50: #fbe9ec,
+      100: #f3bac3,
+      200: #ed98a6,
+      300: #e46a7e,
+      400: #df4d65,
+      500: #d7203e,
+      600: #c41d38,
+      700: #99172c,
+      800: #761222,
+      900: #5a0d1a,
+      A100: #ed98a6,
+      A200: #e46a7e,
+      A400: #df4d65,
+      A700: #99172c,
+      main: #d7203e,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+$light-success: mat.m2-define-palette((50: #eaf4f3,
+      100: #bdddda,
+      200: #9dccc8,
+      300: #70b5af,
+      400: #55a79f,
+      500: #2a9187,
+      600: #26847b,
+      700: #1e6760,
+      800: #17504a,
+      900: #123d39,
+      A100: #9dccc8,
+      A200: #70b5af,
+      A400: #55a79f,
+      A700: #1e6760,
+      main: #2a9187,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+$light-info: mat.m2-define-palette((50: #e6f4ff,
+      100: #b0deff,
+      200: #8aceff,
+      300: #54b8ff,
+      400: #33aaff,
+      500: #0095ff,
+      600: #0088e8,
+      700: #006ab5,
+      800: #00528c,
+      900: #003f6b,
+      A100: #8aceff,
+      A200: #54b8ff,
+      A400: #33aaff,
+      A700: #006ab5,
+      main: #0095ff,
+      contrast: (50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(0, 0, 0, 0.87),
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff)));
+
+// Define light and dark themes
+$light-theme: mat.m2-define-light-theme((color: (primary: $light-primary,
+        accent: $light-accent,
+        warn: $light-warn ),
+      typography: $typography,
+      density: 0));
+
+$dark-theme: mat.m2-define-dark-theme((color: (primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn ),
+      typography: $typography,
+      density: 0));
+
+// Apply themes
+@include mat.all-component-themes($light-theme);
+
+// Dark theme media query
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-themes($dark-theme);
+}
+
+// Custom CSS variables for additional styling
+:root {
+  // Spacing from base-theme.json
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 32px;
+  --spacing-5: 64px;
+
+  // Border radius from base-theme.json
+  --border-radius: 8px;
+
+  // Background and text colors for light theme
+  --background-paper: #ffffff;
+  --background-default: #F1F1F1;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  --divider: rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-paper: #252525;
+    --background-default: #252525;
+    --text-primary: rgba(255, 255, 255, 0.9);
+    --text-secondary: rgba(255, 255, 255, 0.75);
+    --text-disabled: rgba(255, 255, 255, 0.5);
+    --divider: rgba(255, 255, 255, 0.12);
+  }
+}
+
+// Additional component-specific overrides
+mat-card {
+  border-radius: var(--border-radius);
+}
+
+mat-button,
+mat-raised-button,
+mat-icon-button,
+mat-fab {
+  border-radius: var(--border-radius);
+}
+
+.light-theme {
+  @include mat.all-component-themes($light-theme);
+  @include mat.typography-hierarchy($typography);
+
+  --background-paper: #ffffff;
+  --background-default: #F1F1F1;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  --divider: rgba(0, 0, 0, 0.12);
+}
+
+.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+  @include mat.typography-hierarchy($typography);
+
+  --background-paper: #252525;
+  --background-default: #252525;
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-disabled: rgba(255, 255, 255, 0.5);
+  --divider: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  background-color: var(--background-default);
+  color: var(--text-primary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-body1);
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+//light
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-default);
+    color: var(--text-primary);
+  }
+}
+
+//dark
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-paper);
+    color: var(--text-primary);
+  }
+}
