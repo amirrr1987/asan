@@ -6,25 +6,15 @@
 // Define typography configuration based on base-theme.json
 $typography: mat.m2-define-typography-config(
   $font-family: '"Vazirmatn", "Roboto", "Helvetica", "Arial", sans-serif',
-  // Replaced 'inherit' with a standard font stack
   $headline-1: mat.m2-define-typography-level(40px, 63.48px, 400),
-  // h1Lg
   $headline-2: mat.m2-define-typography-level(32px, 50.78px, 400),
-  // h1Md
   $headline-3: mat.m2-define-typography-level(24px, 38.09px, 400),
-  // h1Sm
   $body-1: mat.m2-define-typography-level(14px, 1.5, 400),
-  // body1 (line-height 'normal' replaced with 1.5)
   $body-2: mat.m2-define-typography-level(16px, 25.39px, 400),
-  // bodyLg
   $subtitle-1: mat.m2-define-typography-level(14px, 22.22px, 400),
-  // bodyMd
   $subtitle-2: mat.m2-define-typography-level(12px, 19.04px, 400),
-  // bodySm
   $caption: mat.m2-define-typography-level(14px, 19.04px, 400),
-  // caption
   $button: mat.m2-define-typography-level(14px, 22.22px, 500),
-  // button
   $overline: mat.m2-define-typography-level(10px, 15.87px, 400), // bodyXs
 );
 
