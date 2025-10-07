@@ -1,32 +1,138 @@
 @use '@angular/material' as mat;
 
-// Light theme (default)
-html[data-theme="light"] {
-    @include mat.theme((color: mat.$green-palette,
-            typography: Roboto,
-            density: 0));
+
+$custom-typography: mat.m2-define-typography-config($font-family: "Vazirmatn");
+// --------------------
+// DEFINE PALETTES
+// --------------------
+$light-primary-palette: mat.m2-define-palette((50: #e6f1ef,
+      100: #b0d3ce,
+      200: #8abeb6,
+      300: #54a195,
+      400: #338e81,
+      500: #007261,
+      600: #006858,
+      700: #005145,
+      800: #003f35,
+      900: #003029, contrast: (500: #fff),
+    ));
+
+$dark-primary-palette: mat.m2-define-palette((50: #153c36,
+      100: #1c4e47,
+      200: #24655c,
+      300: #2e8175,
+      400: #2d7f73,
+      500: #338e81,
+      600: #76b3ab,
+      700: #a1cbc5,
+      800: #c0dcd8,
+      900: #ebf4f2,
+      contrast: (500: #fff),
+    ));
+
+$light-warning-palette: mat.m2-define-palette((50: #fff8e6,
+      100: #ffe9b0,
+      200: #ffde8a,
+      300: #ffcf54,
+      400: #ffc533,
+      500: #ffb700,
+      600: #e8a700,
+      700: #b58200,
+      800: #8c6500,
+      900: #6b4d00,
+      contrast: (500: #fff),
+    ));
+
+
+$dark-warning-palette: mat.m2-define-palette((50: #6b4d00,
+      100: #8c6500,
+      200: #b58200,
+      300: #e8a700,
+      400: #FAB401,
+      500: #ffb700,
+      600: #ffc533,
+      700: #ffcf54,
+      800: #ffde8a,
+      900: #fff8e6,
+      contrast: (500: #fff),
+    ));
+
+
+
+
+$light-error-palette: mat.m2-define-palette((50: #fbe9ec,
+      100: #f3bac3,
+      200: #ed98a6,
+      300: #e46a7e,
+      400: #df4d65,
+      500: #d7203e,
+      600: #c41d38,
+      700: #99172c,
+      800: #761222,
+      900: #5a0d1a,
+      contrast: (500: #fff),
+    ));
+
+
+$dark-error-palette: mat.m2-define-palette((50: #5a0d1a,
+      100: #761222,
+      200: #99172c,
+      300: #c41d38,
+      400: #D0203D,
+      500: #d7203e,
+      600: #df4d65,
+      700: #e46a7e,
+      800: #ed98a6,
+      900: #fbe9ec,
+      contrast: (500: #fff),
+    ));
+
+
+$light-accent-palette: mat.m2-define-palette(mat.$m2-pink-palette);
+$light-warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+
+$dark-accent-palette: mat.m2-define-palette(mat.$m2-pink-palette);
+$dark-warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+
+
+$light-theme: mat.m2-define-light-theme((color: (primary: $light-primary-palette,
+        accent: $light-accent-palette,
+        warning: $light-warning-palette,
+        error: $light-error-palette,
+      ),
+      typography: $custom-typography,
+    ));
+
+$dark-theme: mat.m2-define-dark-theme((color: (primary: $dark-primary-palette,
+        accent: $dark-accent-palette,
+        warning: $dark-warning-palette,
+        error: $dark-error-palette,
+      ),
+      typography: $custom-typography,
+    ));
+
+// --------------------
+// APPLY THEMES
+// --------------------
+html[data-theme='light'] {
+  @include mat.all-component-themes($light-theme);
 }
 
-// Dark theme
-html[data-theme="dark"] {
-    @include mat.theme((color: mat.$violet-palette,
-            typography: Roboto,
-            density: 0));
+html[data-theme='dark'] {
+  @include mat.all-component-themes($dark-theme);
 }
 
-// Fallback for system preference
+// --------------------
+// SYSTEM PREFERENCE FALLBACK
+// --------------------
 @media (prefers-color-scheme: light) {
-    html:not([data-theme]) {
-        @include mat.theme((color: mat.$green-palette,
-                typography: Roboto,
-                density: 0));
-    }
+  html:not([data-theme]) {
+    @include mat.all-component-themes($light-theme);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    html:not([data-theme]) {
-        @include mat.theme((color: mat.$violet-palette,
-                typography: Roboto,
-                density: 0));
-    }
+  html:not([data-theme]) {
+    @include mat.all-component-themes($dark-theme);
+  }
 }
