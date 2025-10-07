@@ -1,11 +1,47 @@
 <div class="h-svh flex flex-col">
-  <div class="flex-1">
+  <mat-toolbar color="primary" class="flex justify-between items-center">
+    <div class="flex items-center">
+      <button matIconButton class="" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+    </div>
+    <div class="flex items-center">
+      <button matIconButton class="favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button matIconButton class="" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div class="flex-1 p-2">
     <router-outlet />
   </div>
-  <div class="flex items-center gap-4 py-2 bg-primary-500">
+
+  <mat-toolbar color="primary" class="flex justify-between items-center">
+    <button matIconButton class="" aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button matIconButton class="" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button matIconButton class="" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button matIconButton class="favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>file_present</mat-icon>
+    </button>
+    <button matIconButton class="" aria-label="Example icon-button with share icon">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <!-- <div class="flex items-center gap-4 p-2 bg-primary-500">
     <button matButton color="primary" routerLink="/">home</button>
     <button matButton color="primary" routerLink="/auth/login">login</button>
     <button matButton color="primary" routerLink="/auth/register">register</button>
     <button matButton color="primary" routerLink="/profile">profile</button>
-  </div>
+  </div> -->
 </div>
