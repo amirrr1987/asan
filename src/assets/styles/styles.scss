@@ -136,3 +136,11 @@ html[data-theme='dark'] {
     @include mat.all-component-themes($dark-theme);
   }
 }
+
+
+// custom styles
+
+// برای چپ چین کردن input های که ltr هستند
+.ltr-input.mdc-text-field__input:focus {
+  direction: ltr;
+}
