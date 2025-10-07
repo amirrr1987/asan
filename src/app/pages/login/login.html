@@ -2,11 +2,11 @@
   <mat-card-header class="mb-4">ورود</mat-card-header>
   <mat-card-content>
 
-    <form class="space-y-4" (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
+    <form class="" (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>کدملی</mat-label>
         <input matInput type="text" class="ltr-input" autocomplete="off" required formControlName="nationalCode" />
-        <mat-icon matPrefix>person</mat-icon>
+        <mat-icon matPrefix color="primary">person</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
 
@@ -14,28 +14,25 @@
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>کلمه عبور</mat-label>
         <input matInput [type]="hide() ? 'password' : 'text'" class="ltr-input" autocomplete="off" required formControlName="password" />
-        <mat-icon matPrefix>lock</mat-icon>
+        <mat-icon matPrefix color="primary">lock</mat-icon>
 
         <button matIconButton matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password icon'"
           [attr.aria-pressed]="hide()">
-          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-icon color="primary">{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
 
-        <img class="w-full h-14 object-cover mb-3 rounded" src="/captcha.png" title="" alt="" />
+        <img class="w-full h-14 object-cover rounded mb-10" src="/captcha.png" title="" alt="" />
 
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>کد امنیتی</mat-label>
         <input type="text" matInput class="ltr-input" required autocomplete="off" formControlName="captcha" />
-        <mat-icon matPrefix>security</mat-icon>
+        <mat-icon matPrefix color="primary">security</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
       <div class="mt-4">
-        <button mat-button color="primary" type="submit" class="w-full">ورود</button>
-            <button matButton="filled">Basic</button>
-    <button matButton="filled" disabled>Disabled</button>
-    <a matButton="filled" href="https://www.google.com/" target="_blank">Link</a>
+        <button matButton="filled" color="primary" type="submit" class="w-full">ورود</button>
       </div>
     
     </form>
