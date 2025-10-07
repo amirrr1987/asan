@@ -1,5 +1,5 @@
 // theme.service.ts
-import { Injectable, signal, } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -18,7 +18,6 @@ export class ThemeService {
     htmlEl.setAttribute('data-theme', theme);
     this.currentTheme.set(theme);
     localStorage.setItem('theme', theme);
-
   }
 
   public initializeTheme() {
@@ -28,5 +27,4 @@ export class ThemeService {
     // const theme = savedTheme || (prefersDark ? 'dark' : 'light');
     this.setTheme(savedTheme ?? 'light');
   }
-
 }

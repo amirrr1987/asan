@@ -1,40 +1,89 @@
 <mat-card class="h-full">
   <mat-card-header class="mb-4">ورود</mat-card-header>
   <mat-card-content>
-
-    <form class="" (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
+    <form class="" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>کدملی</mat-label>
-        <input matInput type="text" class="ltr-input" autocomplete="off" required formControlName="nationalCode" />
+        <input
+          regex="^[0-9]{10}$"
+          matInput
+          type="text"
+          class="ltr-input"
+          autocomplete="off"
+          required
+          formControlName="nationalCode"
+        />
         <mat-icon matPrefix color="primary">person</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="loginForm.get('nationalCode')?.errors?.['required']">
+          کدملی الزامی است
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('nationalCode')?.errors?.['pattern']">
+          کدملی باید 10 کاراکتر باشد
+        </mat-error>
       </mat-form-field>
-
 
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>کلمه عبور</mat-label>
-        <input matInput [type]="hide() ? 'password' : 'text'" class="ltr-input" autocomplete="off" required formControlName="password" />
+        <input
+          matInput
+          [type]="hide() ? 'password' : 'text'"
+          class="ltr-input"
+          autocomplete="off"
+          required
+          formControlName="password"
+        />
         <mat-icon matPrefix color="primary">lock</mat-icon>
 
-        <button matIconButton matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password icon'"
-          [attr.aria-pressed]="hide()">
-          <mat-icon color="primary">{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <button
+          matIconButton
+          matSuffix
+          (click)="togglePasswordVisibility($event)"
+          [attr.aria-label]="'Hide password icon'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon color="primary">{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
-        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+          کلمه عبور الزامی است
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.errors?.['pattern']">
+          کلمه عبور باید 10 کاراکتر باشد
+        </mat-error>
       </mat-form-field>
 
+      <div class="relative group">
+        <button
+          class="!hidden group-hover:!flex group-focus-within:!flex !absolute end-1 top-1 !w-8 !h-8 !min-w-0 !p-0 items-center justify-center"
+          matMiniFab
+          color="primary"
+          aria-label="Example icon button with a menu icon"
+        >
+          <mat-icon>refresh</mat-icon>
+        </button>
         <img class="w-full h-14 object-cover rounded mb-10" src="/captcha.png" title="" alt="" />
+      </div>
 
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>کد امنیتی</mat-label>
-        <input type="text" matInput class="ltr-input" required autocomplete="off" formControlName="captcha" />
+        <mat-label> کد امنیتی</mat-label>
+        <input
+          type="text"
+          matInput
+          class="ltr-input"
+          required
+          autocomplete="off"
+          formControlName="captcha"
+        />
         <mat-icon matPrefix color="primary">security</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="loginForm.get('captcha')?.errors?.['required']">
+          کد امنیتی الزامی است
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('captcha')?.errors?.['pattern']">
+          کد امنیتی باید 10 کاراکتر باشد
+        </mat-error>
       </mat-form-field>
       <div class="mt-4">
         <button matButton="filled" color="primary" type="submit" class="w-full">ورود</button>
       </div>
-    
     </form>
   </mat-card-content>
 </mat-card>
