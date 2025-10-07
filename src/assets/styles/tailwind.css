@@ -1,28 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Colors - Light Theme (از light.json و base-theme.json) */
-  --color-primary-50: #e6f1ef;
-  --color-primary-100: #b0d3ce;
-  --color-primary-200: #8abeb6;
-  --color-primary-300: #54a195;
-  --color-primary-400: #338e81;
-  --color-primary-500: #007261;
-  --color-primary-600: #006858;
-  --color-primary-700: #005145;
-  --color-primary-800: #003f35;
-  --color-primary-900: #003029;
+  /* Colors - Using CSS custom properties from SCSS */
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
 
-  --color-secondary-50: #e7f7f9;
-  --color-secondary-100: #b4e7eb;
-  --color-secondary-200: #8fdbe2;
-  --color-secondary-300: #5ccad5;
-  --color-secondary-400: #3dc0cd;
-  --color-secondary-500: #0cb0c0;
-  --color-secondary-600: #0ba0af;
-  --color-secondary-700: #097d88;
-  --color-secondary-800: #07616a;
-  --color-secondary-900: #054a51;
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
 
   --color-error-50: #fbe9ec;
   --color-error-100: #f3bac3;

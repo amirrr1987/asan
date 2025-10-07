@@ -1,0 +1,40 @@
+<mat-card class="h-full">
+  <mat-card-header class="mb-4">ورود</mat-card-header>
+  <mat-card-content>
+
+    <form class="grid" (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
+      <mat-form-field appearance="outline">
+        <mat-label>کدملی</mat-label>
+        <input matInput type="text" class="ltr-input" autocomplete="off" required formControlName="nationalCode" />
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>کلمه عبور</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'" class="ltr-input" autocomplete="off" required formControlName="password" />
+        <mat-icon matPrefix>lock</mat-icon>
+
+        <button matIconButton matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password icon'"
+          [attr.aria-pressed]="hide()">
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+        <img class="w-full h-14 object-cover mb-3 rounded" src="/captcha.png" title="" alt="" />
+
+      <mat-form-field appearance="outline" class="">
+        <mat-label>کد امنیتی</mat-label>
+        <input type="text" matInput class="ltr-input" required autocomplete="off" formControlName="captcha" />
+        <mat-icon matPrefix>security</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <div class="pt-4">
+        <button mat-raised-button color="primary" type="submit" class="w-full">ورود</button>
+      </div>
+    
+    </form>
+  </mat-card-content>
+</mat-card>
