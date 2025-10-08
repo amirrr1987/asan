@@ -26,6 +26,15 @@
         matIconButton
         class=""
         aria-label="Example icon-button with share icon"
+        (click)="toggleLang()"
+      >
+        <mat-icon> language</mat-icon>
+      </button>
+
+            <button
+        matIconButton
+        class=""
+        aria-label="Example icon-button with share icon"
         (click)="themeService.toggleTheme()"
       >
         <mat-icon> {{ themeService.currentTheme() === 'dark' ? 'sunny' : 'dark_mode' }}</mat-icon>
