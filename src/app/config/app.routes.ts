@@ -3,6 +3,7 @@ import { Auth } from '@/layouts/auth/auth';
 import { Panel } from '@/layouts/panel/panel';
 import { Routes } from '@angular/router';
 import { DashboardPage } from '@/pages/dashboard/dashboard';
+import { AboutPage } from '@/pages/about/about';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
       {
         path: '',
         component: DashboardPage,
+      },
+      {
+        path: 'about',
+        component: AboutPage,
       },
     ],
   },
