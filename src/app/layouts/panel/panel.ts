@@ -7,8 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ThemeService } from '@/services/theme.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslateService } from '@ngx-translate/core';
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 type LangList = 'en' | 'fa';
 
 
@@ -19,10 +19,11 @@ type LangList = 'en' | 'fa';
     RouterLink,
     MatButtonModule,
     MatToolbarModule,
-    MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   templateUrl: './panel.html',
   styleUrl: './panel.scss',

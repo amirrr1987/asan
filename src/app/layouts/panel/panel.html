@@ -1,77 +1,93 @@
-<div class="h-svh flex flex-col">
-  <mat-toolbar color="primary" class="flex justify-between items-center">
-    <div class="flex items-center">
-      <button matIconButton class="" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-    </div>
-    <div class="flex items-center">
-      <button
-        matIconButton
-        class="favorite-icon"
-        aria-label="Example icon-button with heart icon"
-        [matMenuTriggerFor]="menu"
-      >
-        <mat-icon>favorite</mat-icon>
-      </button>
+  <mat-drawer-container class="" hasBackdrop>
+    <mat-drawer #drawer mode="over" class="">
+      <div class="p-0">
+        <h3>My App</h3>
+        <nav class="mt-4">
+          <button mat-button routerLink="/" class="w-full justify-start">
+            <mat-icon>home</mat-icon>
+            <span class="ml-2">Home</span>
+          </button>
+          <button mat-button routerLink="/about" class="w-full justify-start">
+            <mat-icon>info</mat-icon>
+            <span class="ml-2">About</span>
+          </button>
+          <button mat-button routerLink="/auth/login" class="w-full justify-start">
+            <mat-icon>exit_to_app</mat-icon>
+            <span class="ml-2">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </mat-drawer>
+    
+    <mat-drawer-content class="!h-svh !flex !flex-col">
+      <mat-toolbar color="primary" class="flex justify-between items-center">
+        <div class="flex items-center">
+          <button matIconButton aria-label="Toggle menu" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span class="ml-2">My App</span>
+          <span class="example-spacer"></span>
+        </div>
+        <div class="flex items-center">
+          <button
+            matIconButton
+            class="favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
 
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
 
-      <button
-        matIconButton
-        class=""
-        aria-label="Example icon-button with share icon"
-        (click)="toggleLang()"
-      >
-        <mat-icon> language</mat-icon>
-      </button>
+          <button
+            matIconButton
+            class=""
+            aria-label="Example icon-button with share icon"
+            (click)="toggleLang()"
+          >
+            <mat-icon>language</mat-icon>
+          </button>
 
-            <button
-        matIconButton
-        class=""
-        aria-label="Example icon-button with share icon"
-        (click)="themeService.toggleTheme()"
-      >
-        <mat-icon> {{ themeService.currentTheme() === 'dark' ? 'sunny' : 'dark_mode' }}</mat-icon>
-      </button>
-    </div>
-  </mat-toolbar>
+          <button
+            matIconButton
+            class=""
+            aria-label="Example icon-button with share icon"
+            (click)="themeService.toggleTheme()"
+          >
+            <mat-icon>{{ themeService.currentTheme() === 'dark' ? 'sunny' : 'dark_mode' }}</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar>
 
-  <div class="flex-1 p-3 overflow-y-auto">
-    <router-outlet />
-  </div>
+      <div class="flex-1 p-3 overflow-y-auto">
+        <router-outlet />
+      </div>
 
-  <mat-toolbar color="primary" class="flex justify-between items-center">
-    <button matIconButton class="" aria-label="Example icon-button with menu icon" routerLink="/">
-      <mat-icon>home</mat-icon>
-    </button>
-    <button
-      matIconButton
-      class=""
-      aria-label="Example icon-button with menu icon"
-      routerLink="/about"
-    >
-      <mat-icon>info</mat-icon>
-    </button>
-    <button matIconButton class="" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <button matIconButton class="favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>file_present</mat-icon>
-    </button>
-    <button matIconButton class="" aria-label="Example icon-button with share icon" routerLink="/auth/login">
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
-  </mat-toolbar>
-  <!-- <div class="flex items-center gap-4 p-2 bg-primary-500">
-    <button matButton color="primary" routerLink="/">home</button>
-    <button matButton color="primary" routerLink="/auth/login">login</button>
-    <button matButton color="primary" routerLink="/auth/register">register</button>
-    <button matButton color="primary" routerLink="/profile">profile</button>
-  </div> -->
-</div>
+      <mat-toolbar color="primary" class="flex justify-between items-center">
+        <button matIconButton class="" aria-label="Example icon-button with menu icon" routerLink="/">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button
+          matIconButton
+          class=""
+          aria-label="Example icon-button with menu icon"
+          routerLink="/about"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+        <button matIconButton class="" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button matIconButton class="favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>file_present</mat-icon>
+        </button>
+        <button matIconButton class="" aria-label="Example icon-button with share icon" routerLink="/auth/login">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </mat-toolbar>
+    </mat-drawer-content>
+  </mat-drawer-container>
