@@ -10,7 +10,7 @@ import { ThemeService } from '@/services/theme.service';
   templateUrl: './auth.html',
   styleUrl: './auth.scss',
 })
-export class Auth implements OnInit{
+export class Auth implements OnInit {
   public themeService = inject(ThemeService);
 
   ngOnInit() {

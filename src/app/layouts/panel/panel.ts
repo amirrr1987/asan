@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 type LangList = 'en' | 'fa';
 
-
 @Component({
   selector: 'app-panel',
   imports: [
@@ -35,14 +34,13 @@ export class Panel {
 
   public toggleLang() {
     //  read from local storage
-    this.currentLang.set(localStorage.getItem('lang') as LangList || 'en');
+    this.currentLang.set((localStorage.getItem('lang') as LangList) || 'en');
     this.currentLang.set(this.currentLang() === 'en' ? 'fa' : 'en');
     this.translate.use(this.currentLang());
     localStorage.setItem('lang', this.currentLang());
   }
 
-
-  toggleDrawer() { }
+  toggleDrawer() {}
   ngOnInit() {
     this.themeService.initializeTheme();
   }

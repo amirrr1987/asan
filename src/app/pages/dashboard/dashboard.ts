@@ -19,19 +19,20 @@ import {
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class DashboardPage {
   readonly dialog = inject(MatDialog);
-  public myList = signal<{
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-    city: string;
-    state: string;
-  }[]>([
+  public myList = signal<
+    {
+      id: number;
+      name: string;
+      email: string;
+      phone: string;
+      address: string;
+      city: string;
+      state: string;
+    }[]
+  >([
     {
       id: 1,
       name: 'John Doe',

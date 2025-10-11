@@ -8,10 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-// Child  App
 export class App {
-      protected readonly title = signal('Asan');
-      private translate = inject(TranslateService);
+  protected readonly title = signal('Asan');
+  private translate = inject(TranslateService);
   constructor() {
     this.translate.addLangs(['fa', 'en']);
     this.translate.setFallbackLang('en');
