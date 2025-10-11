@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <title>صفحه یافت نشد - Asan</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #e74c3c; }
+        p { color: #666; margin: 20px 0; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>صفحه یافت نشد</h1>
+        <p>متأسفانه صفحه‌ای که دنبال آن می‌گردید وجود ندارد.</p>
+        <p><a href="/">بازگشت به صفحه اصلی</a></p>
+    </div>
+    <script>
+        // Redirect to main app after 3 seconds
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 3000);
+    </script>
+</body>
+</html>
